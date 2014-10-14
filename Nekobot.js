@@ -1,9 +1,9 @@
 /*
-	Nekobot v2 / Core
-	
-	@package  pw.futa.nekobot.core.bootloader.call
-	@author   Amphineko (Naoki Rinmous)
+	Nekobot v3 / Core
+
+	@package  me.acgch.nekobot.bootloader.init
+	@author   Naoki Rinmous <i@futa.moe>
 */
 
-process.title = 'Nekobot v2 Console';
+process.title = 'Nekobot v3 Console';
 require('./app/Bootloader').boot();

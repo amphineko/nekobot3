@@ -1,4 +1,9 @@
-/* jslint node: true */
+/*
+	Nekobot v3 / Core.NetKernel
+
+	@package  me.acgch.nekobot.kernel.sendqueue
+	@author   Naoki Rinmous <i@futa.moe>
+*/
 
 var Api = require('../common/qqapi2');
 var log = new (require('Log'))('debug');

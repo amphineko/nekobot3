@@ -1,13 +1,9 @@
 /*
-	Nekobot v2 / Core
-	
-	@package  pw.futa.nekobot.core.apiclient
-	@author   Amphineko (Naoki Rinmous)
-	
-	@modification-increment  #2 (03/09/2014)
-*/
+	Nekobot v2 / Core.Shared
 
-/* jslint node: true */
+	@package  me.acgch.nekobot.utils.apiclient
+	@author   Naoki Rinmous <i@futa.moe>
+*/
 
 var http = require('http');
 var https = require("https");
@@ -21,19 +17,19 @@ function doRequest(options, postform, cookies, callback) {
 	options.host = url.host;
 	options.path = url.path;
 	options.headers = options.headers || {};
-	
+
 	var client = url.protocol === 'https:' ? https : http; // 通過URL的頭部協議來決定使用HTTP或HTTPS客戶機
-	
+
 	// 準備POST請求
 	if (postform && options.method === 'POST') {
 		data = querystring.stringify(postform);
 		options.headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
 		options.headers['Content-Length'] = Buffer.byteLength(data);
 	}
-	
+
 	options.headers.Cookie = cookies;
 	options.headers.Referer = 'http://d.web2.qq.com/proxy.html?v=20110331002&callback=1&id=3';
-	
+
 	var respbody = '';
 	var q = client.request(options, function(resp) {
 		resp.on('data', function(datachunk) {

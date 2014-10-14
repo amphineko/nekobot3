@@ -1,22 +1,18 @@
 /*
-	Nekobot v3 / Authorize Module
-	
-	@package  pw.futa.nekobot.auth.cache
-	@author   Amphineko (Naoki Rinmous)
+	Nekobot v3 / Core.Auth
+
+	@package  me.acgch.nekobot.auth.cache
+	@author   Naoki Rinmous <i@futa.moe>
 */
 
-/* jslint node: true */
-
-/* node.js Modules */
 var fs = require('fs');
-/* Third-party Modules */
 var log = new (require('log'))('debug');
 
 var cache;
 
 module.exports.data = function (key, value) {
 	// Value not defined:	Return cache record
-	// Value defined:		Write into cache 
+	// Value defined:		Write into cache
 	if (value) {
 		cache[key] = value;
 	} else {

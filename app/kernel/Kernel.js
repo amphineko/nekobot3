@@ -1,13 +1,9 @@
 /*
-	Nekobot v2 / Core
-	
-	@package  pw.futa.nekobot.core.session
-	@author   Amphineko (Naoki Rinmous)
-	
-	@modification-increment  #4 (03/09/2014)
-*/
+	Nekobot v3 / Core.NetKernel
 
-/* jslint node: true */
+	@package  me.acgch.nekobot.kernel.main
+	@author   Naoki Rinmous <i@futa.moe>
+*/
 
 var Bootloader = require('./../Bootloader');
 var APIClient = require('./../common/APIClient');
@@ -20,24 +16,24 @@ var Kernel = function (a, c1, c2) {
 	this.auth = a;
 	this.config = c2;
 	this.cookies = c1;
-	
+
 	this.eventHandler = nullEventHandler;
 	this.kernelEvent = new event.EventEmitter();
-	
+
 	log.info('<Kernel> 內核構築完畢');
 };
 
 Kernel.prototype.start = function () {
 	this.launchtime = moment();
 	process.title = 'Nekobot v2 Console';
-	
+
 	log.info('<Kernel> 內核啓動!');
-	
+
 	var that = this;
 	process.nextTick(function () {
 		poll(that, poll_handle);
 	});
-	
+
 	global.NB_KERNEL = that;
 };
 
@@ -47,7 +43,7 @@ function nullEventHandler() {
 
 function poll(kernel, handler) {
 	log.debug('<Kernel> Executing Poll Tick... method v3 via APIClient');
-	
+
 	var url = "http://d.web2.qq.com/channel/poll2";
 	var r = {
 		clientid: kernel.auth.clientid,
@@ -60,7 +56,7 @@ function poll(kernel, handler) {
 		psessionid: r.psessionid,
 		r: JSON.stringify(r)
 	};
-	
+
 	APIClient.post({ url: url }, params, kernel.cookies, function(ret, res) {
 		handler(kernel, ret, res);
 		poll(kernel, handler);
@@ -72,7 +68,7 @@ function poll_handle(kernel, ret, error) {
 		log.error("<Kernel> 執行Poll操作時遇到異常: " + error);
 		return;
 	}
-	
+
 	var retcode = ret ? ret.retcode : -1;
 	switch (retcode) {
 		case -1:

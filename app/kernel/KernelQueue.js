@@ -1,4 +1,9 @@
-/* jslint node: true */
+/*
+	Nekobot v3 / Core.NetKernel
+
+	@package  me.acgch.nekobot.kernel.queue
+	@author   Naoki Rinmous <i@futa.moe>
+*/
 
 var queue, tickSet, kernel, callback;
 queue = queue || [];

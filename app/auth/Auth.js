@@ -1,11 +1,9 @@
 /*
-	Nekobot v3 / Authorize Module
-	
-	@package  pw.futa.nekobot.auth
-	@author   Amphineko (Naoki Rinmous)
-*/
+	Nekobot v3 / Core.Auth
 
-/* jslint node: true */
+	@package  me.acgch.nekobot.auth
+	@author   Naoki Rinmous <i@futa.moe>
+*/
 
 var AuthLogin = require('./AuthLogin.js'); // Create new session
 var AuthCache = require('./AuthCache.js'); // Resume previous session

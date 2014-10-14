@@ -1,11 +1,9 @@
 /*
-	Nekobot v2 / Core
+	Nekobot v3 / Core
 
-	@package  pw.futa.nekobot.core.bootloader
-	@author   Amphineko (Naoki Rinmous)
+	@package  me.acgch.nekobot.bootloader
+	@author   Naoki Rinmous <i@futa.moe>
 */
-
-/* jslint node: true */
 
 var Kernel = require('./kernel/Kernel');
 var KQueue = require('./kernel/KernelQueue.js');

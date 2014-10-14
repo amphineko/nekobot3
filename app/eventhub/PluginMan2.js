@@ -1,11 +1,10 @@
 /*
-	Nekobot v3 / Core
+	Nekobot v3 / Core.EventHub
 
-	@package  pw.futa.nekobot.core.pluginman2
-	@author   Amphineko (Naoki Rinmous)
+	@package  me.acgch.nekobot.eventhub.pluginman2
+	@author   Naoki Rinmous <i@futa.moe>
 */
 
-/* jslint node: true */
 
 var log = new (require('Log'))('debug');
 

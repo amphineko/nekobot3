@@ -1,4 +1,9 @@
-/* jslint node: true */
+/*
+	Nekobot v2 / Core.Shared
+
+	@package  me.acgch.nekobot.utils.apibook
+	@author   Naoki Rinmous <i@futa.moe>
+*/
 
 var moment = require('moment');
 

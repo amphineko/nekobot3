@@ -1,11 +1,10 @@
 /*
-	Nekobot v2 / Core
-	
-	@package  pw.futa.nekobot.core.userinfo
-	@author   Amphineko (Naoki Rinmous)
+	Nekobot v3 / Core.EventHub
+
+	@package  me.acgch.nekobot.eventhub.infocache
+	@author   Naoki Rinmous <i@futa.moe>
 */
 
-/* jslint node:true */
 
 var api = require('./../common/qqapi2');
 var log = new (require('Log'))('debug');
@@ -32,7 +31,7 @@ function processGroupInfo(res) {
 		info: res.ginfo,
 		members: members
 	};
-	
+
 	return b;
 }
 
@@ -106,7 +105,7 @@ function getAccount(uin, kernel, callback) {
 			}
 		};
 		console.log('Querying: ' + uin);
-		
+
 		api.get_friend_uin2(kernel, uin, function (ret, error) {
 			if (!error) {
 				if (ret) {
@@ -129,5 +128,3 @@ function getAccount(uin, kernel, callback) {
 	}
 }
 module.exports.getAccount = getAccount;
-
-

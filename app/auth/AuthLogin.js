@@ -1,11 +1,9 @@
 /*
-	Nekobot v3 / Authorize Module
+	Nekobot v3 / Core.Auth
 
-	@package  pw.futa.nekobot.auth.login
-	@author   Amphineko (Naoki Rinmous)
+	@package  me.acgch.nekobot.auth.login
+	@author   Naoki Rinmous <i@futa.moe>
 */
-
-/* jslint node: true */
 
 var crypto = require('crypto');
 var fs = require('fs');

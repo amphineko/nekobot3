@@ -1,10 +1,8 @@
-/* jslint node: true */
-
 /*
-	Nekobot v2 / Core
+	Nekobot v3 / Core.EventHub
 
-	@package  pw.futa.nekobot.core.eventadapter
-	@author	Amphineko (Naoki Rinmous)
+	@package  me.acgch.nekobot.eventhub.adapter
+	@author   Naoki Rinmous <i@futa.moe>
 */
 
 
