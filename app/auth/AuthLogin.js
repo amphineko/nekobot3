@@ -1,6 +1,6 @@
 /*
 	Nekobot v3 / Authorize Module
-	
+
 	@package  pw.futa.nekobot.auth.login
 	@author   Amphineko (Naoki Rinmous)
 */
@@ -23,12 +23,12 @@ var cookies, captcha_server;
 function login(auth, callback) {
 	log.info('<Authorize/Login> 開始進行賬戶認證');
 	console.log('即將登入帳號: ' + auth.account);
-	
+
 	/* 檢查是否需要驗證碼 */
 	checkCaptcha(auth.account, function (ret, code, bits) {
 		log.info('<Authorize/Login> 完成確驗證碼狀態');
 		console.log('Return ' + ret + ', Code ' + code + ', Bits ' + bits);
-		
+
 				/* 開始認證密鑰 */
 		var next = function (nextcode) {
 			authPassword(auth.account, encodePassword(auth.password, nextcode, bits), nextcode, function (ret) {
@@ -38,7 +38,7 @@ function login(auth, callback) {
 				}
 				var _nextjump = ret[2];
 				ret = null;
-				
+
 				log.info('<Authorize/Login> 初期化會話Cookies');
 				/* 轉向騰訊回傳的下一跳位址, 獲取需要的Cookies */
 				nextjump(_nextjump, function () {
@@ -87,7 +87,6 @@ module.exports.login = login;
 // - Authorize/Login.checkCaptcha(): 檢查賬戶認證碼狀態
 function checkCaptcha(account, callback) {
 	var options = {
-		/* https://ssl.ptlogin2.qq.com/check?uin=bot2@futa.pw&appid=1003903&js_ver=10076&js_type=0&login_sig=6ADKSr4kR9AYmRdy8lv6PU6n4-9F020HwgVbOtZtVQTVuDRvlec33ENz5G466fKJ&u1=http%3A%2F%2Fweb2.qq.com%2Floginproxy.html&r=0.6946651526367321*/
 		host: 'ssl.ptlogin2.qq.com',
 		path: "/check?uin=" + account + "&appid=1003903&js_ver=10062&js_type=0&r=" + Math.random(),
 		headers: {
@@ -95,7 +94,7 @@ function checkCaptcha(account, callback) {
 		}
 	};
 	var ret = '';
-	
+
 	https.get(options, function (resp) {
 		cookies = resp.headers['set-cookie'];
 		resp.on('data', function (chunk) {
@@ -116,7 +115,6 @@ function checkCaptcha(account, callback) {
 
 // - Authorize/Login.authCaptcha(): 進行驗證碼校驗
 function authCaptcha(account, srvhost, srvport, callback) {
-	// - https://ssl.captcha.qq.com/getimage?aid=1003903&r=0.9844091278500855&uin=bot2@futa.pw
 	var url = "https://ssl.captcha.qq.com/getimage?aid=1003903&r=" + Math.random() + "&uin=" + account;
 	var body = '';
 	https.get(url, function(resp) {
@@ -250,7 +248,7 @@ function login2(callback) {
 	});
 	var ret = '';
 	console.log('Client ID: ' + r.clientid);
-	
+
 	/* Prepare Request Parameters */
 	var options = {
 		host: 'd.web2.qq.com',
@@ -265,7 +263,7 @@ function login2(callback) {
 			'Cookie': cookies
 		}
 	};
-	
+
 	/* Execute Request */
 	var req = http.request(options, function(resp) {
 		console.log('login2 statusCode: ' + resp.statusCode);

@@ -7,8 +7,6 @@ tickSet = tickSet === undefined ? false : tickSet;
 function tick() {
 	var m = queue.pop();
 	if (m) {
-		// void EventAdapter.createMessage2(message, callback)
-		// - callback(stat: boolean, d: object/null)
 		try {
 			callback(m, kernel, function () {
 				tick();

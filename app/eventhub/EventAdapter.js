@@ -2,7 +2,7 @@
 
 /*
 	Nekobot v2 / Core
-	
+
 	@package  pw.futa.nekobot.core.eventadapter
 	@author	Amphineko (Naoki Rinmous)
 */
@@ -72,7 +72,6 @@ function createMessage2(event, kernel, callback) {
 
 function tryGetGroupInfo(depth, gcode, uin, kernel, callback) {
 	if (depth < 5) {
-		// - getGroupInfo(gcode, kernel, callback)
 		InfoCache.getGroupInfo(gcode, kernel, function (ret, data) {
 			if (ret) {
 				if (data) {
