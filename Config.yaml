@@ -1,0 +1,17 @@
+authorize:
+    account:
+    password:
+
+    cache: "data/authcache.json"
+
+    captcha:
+        host: localhost
+        port: 7381
+
+#模組列表
+plugins:
+    - Sample
+
+#服务状态监控
+ServiceStatus:
+    port: 7380

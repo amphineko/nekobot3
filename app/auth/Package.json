@@ -1,0 +1,4 @@
+{
+	"name": "Auth",
+	"main": "./Auth.js"
+}

@@ -1,0 +1,8 @@
+{
+	"name": "nekobot",
+	"author": "Amphineko <sukareki@gmail.com>",
+	
+	"scripts": {
+		"start": "node NekobotDaemon.js"
+	}
+}
